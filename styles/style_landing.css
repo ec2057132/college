@@ -1,0 +1,248 @@
+/* General */
+body {
+  background-color: #f7f7f7;
+  text-align: center;
+  font-family: Helvetica;
+}
+a:link, a:visited {
+  color: white;
+  text-align: center;
+  font-size: 1.2em;
+  text-decoration: none;
+  font-weight: bold;
+}
+.center-me {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+/* Left */
+.center-me-sec-n {
+  height: 86vh;
+  position: relative;
+}
+#welcome-text {
+  font-size: 4.5em;
+  font-weight: bold;
+  color: #4267b2;
+}
+#tagLine {
+  text-align: left;
+  color: #BEBEBE;
+}
+
+/* Middle */
+.center-me-sec-l {
+  height: 86vh;
+  position: relative;
+}
+.center-v {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+#line {
+  height: 50vh;
+  border-left: 1px solid #BEBEBE;
+}
+
+/* Right */
+.center-me-sec-b {
+  height: 86vh;
+  margin-bottom: 10vh;
+  position: relative;
+}
+#link-sec {
+  width: 75%;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 3px 9px #545454;
+}
+#login-form {
+  margin-top: 3%;
+  margin-bottom: 6%;
+}
+.inputField {
+  width: 90%;
+  margin-top: 2%;
+  padding: 12px 15px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  outline: none;
+}
+.inputField[input-error] {
+  border-color: #d92e2e;
+  color: #d92e2e;
+  background-color: #fff5f5;
+}
+.inputField:focus {
+  border: 2px solid #4267b2;
+}
+
+/* Login Button */
+#login-btn {
+  width: 90%;
+  margin-top: 4%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 2px solid #4267b2;
+  border-radius: 5px;
+  background-color: #4267b2;
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+#login-btn:hover {
+  border: 2px solid #365aa1;
+  background-color: #365aa1;
+}
+
+/* Forotten Password */
+#forgot-password-section {
+  display: inline-block;
+  width: 80%;
+  margin-top: 3%;
+}
+#forgot-password:link, #forgot-password:visited {
+  font-size: 0.9em;
+  text-decoration: none;
+  font-weight: normal;
+  color: #4267b2;
+}
+#forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* Horizontal Line */
+#horizontal-line {
+  display: inline-block;
+  width: 80%;
+  margin: 3% 0;
+  border-top: 1px solid #BEBEBE;
+}
+
+/* Register Button */
+#register-btn-section {
+  display: inline-block;
+  width: 80%;
+  margin: 0;
+}
+#register-btn {
+  display: inline-block;
+  width: 80%;
+  margin: 0;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 2px solid #42b72a;
+  border-radius: 5px;
+  background-color: #42b72a;
+  font-size: 1em;
+  font-weight: bold;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+#register-btn:hover {
+  border: 2px solid #38a61f;
+  background-color: #38a61f;
+}
+
+/* Flashbar */
+#flashbar {
+  height: 4vh;
+  background-color: #dfe3ee;
+}
+
+@media screen and (max-width: 769px) {
+  .center-me-sec-n {
+    height: 40vh;
+    position: relative;
+  }
+  .center-me-sec-b {
+    height: 56vh;
+    margin-bottom: 0;
+    position: relative;
+  }
+  #link-sec {
+    width: 90%;
+  }
+  .center-me-sec-l {
+    display: none;
+  }
+  .center-v {
+    display: none;
+  }
+}
+
+/* Extra */
+/*
+#login-link-div {
+  background-color: #4267b2;
+}
+#register-link-div {
+  background-color: #42b72a;
+}
+#login-link-div:hover {
+  background-color: #4267b2;
+}
+#register-link-div:hover {
+  background-color: #42b72a;
+}
+
+.link-div {
+  border-radius: 8px;
+  margin: 10%;
+  padding: 2%;
+  box-shadow: 3px 3px 6px gray;
+}
+
+.center-me-sec-n {
+  height: 90vh;
+  position: relative;
+}
+.center-me-sec-b {
+  height: 90vh;
+  position: relative;
+}
+.center-me-sec-l {
+  height: 90vh;
+  position: relative;
+}
+
+.center-me-sec {
+  height: 100vh;
+  position: relative;
+}
+
+.center-me {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.center-h {
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.center-v {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+} */
