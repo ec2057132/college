@@ -277,7 +277,7 @@ a:link, a:visited {
   margin: 0 0.25rem;
 }
 
-.panel-btn-sec {
+#panel-btn-sec {
   display: flex;
   justify-content: space-around;
   align-items: center;
