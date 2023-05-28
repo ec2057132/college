@@ -17,9 +17,9 @@ the files provided there are a few things that need to be set up first.
 
 If the website isn't connecting to the database then there is a chace the
 connect_db.php file's detils don't match the server you're usings and will
-need to be edited.
+need to be edited.<br>
 I recommend for ease of use you use XAMPP as these cridentials should
 match what the website is looking for.
 
-Thank you and please enjoy!
+Thank you and please enjoy!<br>
 Louis
