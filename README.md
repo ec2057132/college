@@ -3,10 +3,10 @@ Louis McGarry's Graded Unit Project Files and Setup
 In order to view a working version of the website designed with
 the files provided there are a few things that need to be set up first.
 
-#1 - Download all project files.
+#1 - Download all project files.<br>
 #2 - Download a home server environment to run the application from
      (the local server solution used when developing this project was
-     XAMPP).
+     XAMPP).<br>
 #3 - Add the website files to the local server's desired folder.
 #4 - Login to the local server's phpMyAdmin page (or equivalent).
 #5 - Import the database file onto the server through phpMyAdmin. 
