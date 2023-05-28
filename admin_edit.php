@@ -80,7 +80,8 @@ if (!isset( $_SESSION["a_id"] ) ) {
                           <select name="genre-1" class="input-drop input-third" id="g-1">';
       
                             $genreSql = "SELECT `g_id`, `g_name`
-                                    FROM `genre`;";
+                                    FROM `genre`
+                                    ORDER BY `g_name` ASC;";
                             $genreResult = mysqli_query($conn, $genreSql);
                             while ($genreRow = mysqli_fetch_array($genreResult, MYSQLI_ASSOC)) {
                               if ($row['g_id_1'] == $genreRow['g_id']) {
@@ -96,7 +97,8 @@ if (!isset( $_SESSION["a_id"] ) ) {
                             <option value="0">No Genre</option>';
       
                             $genreSql = "SELECT `g_id`, `g_name`
-                                    FROM `genre`;";
+                                    FROM `genre`
+                                    ORDER BY `g_name` ASC;";
                             $genreResult = mysqli_query($conn, $genreSql);
                             while ($genreRow = mysqli_fetch_array($genreResult, MYSQLI_ASSOC)) {
                               if ($row['g_id_2'] == $genreRow['g_id']) {
@@ -112,7 +114,8 @@ if (!isset( $_SESSION["a_id"] ) ) {
                             <option value="0">No Genre</option>';
       
                             $genreSql = "SELECT `g_id`, `g_name`
-                                    FROM `genre`;";
+                                    FROM `genre`
+                                    ORDER BY `g_name` ASC;";
                             $genreResult = mysqli_query($conn, $genreSql);
                             while ($genreRow = mysqli_fetch_array($genreResult, MYSQLI_ASSOC)) {
                               if ($row['g_id_3'] == $genreRow['g_id']) {
@@ -243,7 +246,7 @@ if (!isset( $_SESSION["a_id"] ) ) {
                 <div class="horizontal-line"></div>
               </div>
 
-              <div id="panel-btn-sec">
+              <div class="panel-btn-sec">
                 <div class="panel-btn-item">
                   <div id="save-btn" onclick="updateMovie(\''.$row["m_id"].'\')">
                     Save
@@ -289,6 +292,11 @@ if (!isset( $_SESSION["a_id"] ) ) {
                         TV Show Details:
                       </div>
                     </div>
+                    <div class="add-new-container" id="tv-btn" onclick="prepTVShow()">
+                      <div class="add-new-text">
+                        + New TV Show
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="details-item">
@@ -315,7 +323,8 @@ if (!isset( $_SESSION["a_id"] ) ) {
                             $result = mysqli_query($conn, $sql);
       
                             $sql = "SELECT `g_id`, `g_name`
-                                    FROM `genre`;";
+                                    FROM `genre`
+                                    ORDER BY `g_name` ASC;";
                             $result = mysqli_query($conn, $sql);
                             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                               echo '
@@ -330,7 +339,8 @@ if (!isset( $_SESSION["a_id"] ) ) {
                             require ("includes/connect_db.php");
       
                             $sql = "SELECT `g_id`, `g_name`
-                                    FROM `genre`;";
+                                    FROM `genre`
+                                    ORDER BY `g_name` ASC;";
                             $result = mysqli_query($conn, $sql);
                             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                               echo '
@@ -344,7 +354,8 @@ if (!isset( $_SESSION["a_id"] ) ) {
                             require ("includes/connect_db.php");
       
                             $sql = "SELECT `g_id`, `g_name`
-                                    FROM `genre`;";
+                                    FROM `genre`
+                                    ORDER BY `g_name` ASC;";
                             $result = mysqli_query($conn, $sql);
                             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                               echo '
@@ -424,9 +435,9 @@ if (!isset( $_SESSION["a_id"] ) ) {
                   <div class="horizontal-line"></div>
                 </div>
       
-                <div id="panel-btn-sec">
-                <div class="panel-btn-item" onclick="updateTVShow(\''.$tvRow['tv_id'].'\')">
-                  <div id="save-btn">
+              <div class="panel-btn-sec">
+                <div class="panel-btn-item">
+                  <div id="save-btn" onclick="updateTVShow(\''.$tvRow['tv_id'].'\')">
                     Save Show Details
                   </div>
                 </div>
@@ -437,7 +448,7 @@ if (!isset( $_SESSION["a_id"] ) ) {
                 </div>
               </div>
       
-              <div class="horizontal-line-sec h-both">
+              <div class="horizontal-line-sec h-both" id="episode-line-1">
                 <div class="horizontal-line"></div>
               </div>
       
@@ -454,14 +465,18 @@ if (!isset( $_SESSION["a_id"] ) ) {
                 <div class="details-item">
                   <div class="details-input-sec">
                     <div class="details-input-item input-full">';
-                        $tId = $_GET['t'];
+                      //Finds the correct TV SHow in the Database and prints 
+                      //it to the admin TV Show template page
+                        $tId = $_GET['t'];// Gets ID for the bellow SQL statement
                         $sql = "SELECT `tv_title`, `tv_description`, `tv_year`, `g_id_1`, `g_id_2`, `g_id_3`, `tv_thumbnail`, `tv_trailer`, `tv_creator`, `tv_actors`, `tv_age`
                         FROM `tv`
                         WHERE `tv_id` = '$tId';";
-      
+                      //Stores the retrievced row from the database
                         $result = mysqli_query($conn, $sql);
+                      //Gets thee content and allows access using the associative method.
                         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-      
+                      //Finds the correct episodes in for the TV Show in the Database and prints 
+                      //it to the admin TV Show template page
                         $sql = "SELECT `s_id`, `e_number`, `e_title`, `e_duration`
                         FROM `episode`
                         WHERE `tv_id` = '$tId';";
@@ -517,7 +532,7 @@ if (!isset( $_SESSION["a_id"] ) ) {
                               </div>';
                             }
                             echo'
-                            <div class="scroll-item" id="add-new-ep" onclick='.''.'>
+                            <div class="scroll-item" id="add-new-ep" onclick="prepEpisode()">
                               <div class="episode-info">
                                 <div id="ep-img-sec">
                                   <img src="img/admin/plus.png" id="ep-img">
@@ -532,7 +547,7 @@ if (!isset( $_SESSION["a_id"] ) ) {
                       </div>
                     </div>
       
-                    <div class="horizontal-line-sec h-both">
+                    <div class="horizontal-line-sec h-both" id="episode-line-2">
                       <div class="horizontal-line"></div>
                     </div>';
                     $sql = "SELECT *
@@ -583,7 +598,7 @@ if (!isset( $_SESSION["a_id"] ) ) {
                   <div class="horizontal-line"></div>
                 </div>
       
-                <div id="panel-btn-sec">
+                <div class="panel-btn-sec">
                 <div class="panel-btn-item">
                   <div id="save-btn-episode" onclick="updateEpisode(\''.$tId.'\')">
                     Save Episode Details
@@ -664,7 +679,7 @@ if (!isset( $_SESSION["a_id"] ) ) {
                   <div class="horizontal-line"></div>
                 </div>
       
-                <div id="panel-btn-sec">
+                <div class="panel-btn-sec">
                 <div class="panel-btn-item">
                   <div id="save-btn-episode" onclick="updateGenre(\''.$row["g_id"].'\')">
                     Save Genre Details
@@ -1278,7 +1293,7 @@ if (!isset( $_SESSION["a_id"] ) ) {
                 <div class="horizontal-line"></div>
               </div>
       
-              <div id="panel-btn-sec">
+              <div class="panel-btn-sec">
                 <div class="panel-btn-item">
                   <div id="save-btn" onclick="updateUser(\''.$row["u_id"].'\')">
                     Save
