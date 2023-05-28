@@ -1,6 +1,7 @@
 <?php
   require("../includes/connect_db.php");
   
+  $tId = $_POST["tv_id"];
   $title = $_POST["tv_title"];
   $desc = $_POST["tv_description"];
   $year = $_POST["tv_year"];

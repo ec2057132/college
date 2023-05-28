@@ -38,10 +38,6 @@ function loadEpisodeDetail(tID, sID, eID) {
     document.getElementById("episode-details-sec").innerHTML = "";
     var result = this.response;
     document.getElementById("episode-details-sec").innerHTML = result;
-
-    document.getElementById("save-btn-episode").removeAttribute("onclick");
-    document.getElementById("save-btn-episode").setAttribute("onclick", "updateEpisode()");
-    document.getElementById("save-btn-episode").innerHTML = "Save Episode Details";
   };
   xhr.send(fData);
 
@@ -187,93 +183,7 @@ function addMovie() {
   xhr.open("POST", "php-background/admin_add_movie.php");
 
   xhr.onload = function(){
-    window.location.href = "admin_movies.php";
-  };
-  xhr.send(fData);
-}
-function prepTVShow() {
-  document.getElementById("title-text").innerHTML = "Adding New TV Show";
-  document.getElementById("tv-btn").style.display = "none";
-  document.getElementById("episode-line-1").style.display = "none";
-  document.getElementsByClassName("details-sec")[1].style.display = "none";
-  document.getElementById("episode-line-2").style.display = "none";
-  document.getElementsByClassName("panel-btn-sec")[1].style.display = "none";
-
-  document.getElementById("t-title").value = "";
-  document.getElementById("t-description").value = "";
-  document.getElementById("t-year").value = "";
-  document.getElementById("g-1").value = "1";
-  document.getElementById("g-2").value = "0";
-  document.getElementById("g-3").value = "0";
-  document.getElementById("t-thumbnail").value = "";
-  document.getElementById("t-trailer").value = "";
-  document.getElementById("t-creator").value = "";
-  document.getElementById("t-actors").value = "";
-  document.getElementById("age-rating").value = "23";
-
-  document.getElementById("save-btn").removeAttribute("onclick");
-  document.getElementById("save-btn").setAttribute("onclick", "addTVShow()");
-  document.getElementById("save-btn").innerHTML = "Add TV Show";
-}
-function addTVShow() {
-  let title = document.getElementById("t-title").value;
-  title = title.replace("\'", "\'\'");
-  let desc = document.getElementById("t-description").value;
-  desc = desc.replace("\'", "\'\'");
-  
-  var fData = new FormData();
-  
-  fData.append("tv_title", title);
-  fData.append("tv_description", desc);
-  fData.append("tv_year", document.getElementById("t-year").value);
-  fData.append("g_id_1", document.getElementById("g-1").value);
-  fData.append("g_id_2", document.getElementById("g-2").value);
-  fData.append("g_id_3", document.getElementById("g-3").value);
-  fData.append("tv_thumbnail", document.getElementById("t-thumbnail").value);
-  fData.append("tv_trailer", document.getElementById("t-trailer").value);
-  fData.append("tv_creator", document.getElementById("t-creator").value);
-  fData.append("tv_actors", document.getElementById("t-actors").value);
-  fData.append("tv_age", document.getElementById("age-rating").value);
-  
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "php-background/admin_add_tv.php");
-
-  xhr.onload = function(){
-    window.location.href = "admin_tv.php";
-  };
-  xhr.send(fData);
-}
-function prepEpisode() {
-  document.getElementById("e-title").value = "";
-  document.getElementById("e-description").value = "";
-  document.getElementById("e-season").value = "";
-  document.getElementById("e-number").value = "";
-  document.getElementById("e-duration").value = "";
-
-  document.getElementById("save-btn-episode").removeAttribute("onclick");
-  document.getElementById("save-btn-episode").setAttribute("onclick", "addEpisode()");
-  document.getElementById("save-btn-episode").innerHTML = "Add Episode";
-}
-function addEpisode() {
-  let title = document.getElementById("e-title").value;
-  title = title.replace("\'", "\'\'");
-  let desc = document.getElementById("e-description").value;
-  desc = desc.replace("\'", "\'\'");
-  
-  var fData = new FormData();
-  
-  fData.append("tv_id", tId);
-  fData.append("s_id", document.getElementById("e-season").value);
-  fData.append("e_number", document.getElementById("e-number").value);
-  fData.append("e_title", title);
-  fData.append("e_description", desc);
-  fData.append("e_duration", document.getElementById("e-duration").value);
-  
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "php-background/admin_add_episode.php");
-
-  xhr.onload = function(){
-    
+    location.reload();
   };
   xhr.send(fData);
 }

@@ -16,8 +16,7 @@
   $actStatus = $_POST["act_status"];
   $aId = $_POST["a_id"];
 
-  if ($a_id == 0) {
-    $sql = "UPDATE `user`
+  $sql = "UPDATE `user`
           SET `f_name` = '$fName', 
           `s_name` = '$sName', 
           `email` = '$e', 
@@ -30,28 +29,8 @@
           `sec_q_2` = '$secQ2', 
           `sub_status` = '$subStatus',
           `act_status` = '$actStatus',
-          `a_id` = NULL
+          `a_id` = '$aId'
           WHERE `u_id` = '$uId';";
 
-    $result = mysqli_query($conn, $sql);
-  }
-  else {
-    $sql = "UPDATE `user`
-            SET `f_name` = '$fName', 
-            `s_name` = '$sName', 
-            `email` = '$e', 
-            `p_num` = '$pNum', 
-            `dob_d` = '$dobD', 
-            `dob_m` = '$dobM', 
-            `dob_y` = '$dobY', 
-            `cntry` = '$cntry', 
-            `sec_q_1` = '$secQ1', 
-            `sec_q_2` = '$secQ2', 
-            `sub_status` = '$subStatus',
-            `act_status` = '$actStatus',
-            `a_id` = '$aId'
-            WHERE `u_id` = '$uId';";
-  
-    $result = mysqli_query($conn, $sql);
-  }
+  $result = mysqli_query($conn, $sql);
 ?>
